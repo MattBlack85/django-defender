@@ -74,3 +74,21 @@ except ValueError:  # pragma: no cover
     raise Exception(
         'DEFENDER_ACCESS_ATTEMPT_EXPIRATION'
         ' needs to be an integer')  # pragma: no cover
+
+DEFENDER_IP_WHITELIST = get_setting('DEFENDER_IP_WHITELIST', [])
+
+DEFENDER_IP_BLACKLIST = get_setting('DEFENDER_IP_BLACKLIST', [])
+
+DEFENDER_ENABLE_BLACKLIST = get_setting('DEFENDER_ENABLE_BLACKLIST', False)
+
+DEFENDER_ENABLE_WHITELIST = get_setting('DEFENDER_ENABLE_WHITELIST', False)
+
+DEFENDER_USERNAME_WHITELIST = get_setting('DEFENDER_USERNAME_WHITELIST', [])
+
+DEFENDER_USERNAME_BLACKLIST = get_setting('DEFENDER_USERNAME_BLACKLIST', [])
+
+if not isinstance(DEFENDER_IP_BLACKLIST, list):
+    raise Exception('DEFENDER_WHITELIST must be a list of IPs')
+
+if not isinstance(DEFENDER_IP_BLACKLIST, list):
+    raise Exception('DEFENDER_BLACKLIST must be a list of IPs')
