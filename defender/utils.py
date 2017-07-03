@@ -80,6 +80,37 @@ def get_username_blocked_cache_key(username):
                                              lower_username(username))
 
 
+def get_username_blacklist_cache_key(username):
+    """
+    Builds the cache key for the username in the whitelist.
+    """
+    return '{0}:blacklist:username:{1}'.format(config.CACHE_KEY,
+                                               lower_username(username))
+
+
+def get_username_whitelist_cache_key(username):
+    """
+    Builds the cache key for the username in the blacklist.
+    """
+    return '{0}:whitelist:username:{1}'.format(config.CACHE_KEY,
+                                               lower_username(username))
+
+
+def get_ip_blacklist_cache_key(ip_address):
+    """
+    Builds the cache key for the IP in the blacklist.
+
+    """
+    return "{0}:blacklist:ip:{1}".format(config.CACHE_PREFIX, ip_address)
+
+
+def get_ip_whitelist_cache_key(ip_address):
+    """
+    Builds the cache key for the IP in the whitelist.
+    """
+    return "{0}:whitelist:ip:{1}".format(config.CACHE_PREFIX, ip_address)
+
+
 def strip_keys(key_list):
     """ Given a list of keys, remove the prefix and remove just
     the data we care about.
